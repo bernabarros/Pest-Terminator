@@ -69,4 +69,22 @@ public class GridSquare : MonoBehaviour
                 break;
         }
     }
+
+    /* Missing Player detection logic
+    private void OnTriggerEnter(Collider other)
+    {
+        if()
+        {
+            playerPresent = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if()
+        {
+            playerPresent = false;
+        }
+    }
+    */
 }
