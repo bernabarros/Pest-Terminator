@@ -16,6 +16,7 @@ public class GridManager : MonoBehaviour
     private GridSquare currentTarget;
     private GridSquare currentDanger;
     private GridSquare nextDanger;
+    private TestMovement player;
 
     [SerializeField] private GameObject[] gameGrid;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +26,53 @@ public class GridManager : MonoBehaviour
         ChooseInitialTarget();
         ChooseInitialDanger();
 
+        player = FindFirstObjectByType<TestMovement>();
+
         StartCoroutine(DangerCycle());
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
+        if (player == null)
+        {
+            return;
+        }
+
+        GridSquare square = GetClosestSquareToPlayer();
+
+        if (square != null && square.State == SquareState.Danger)
+        {
+            PlayerHitDanger();
+        }
+    }
+
+    private GridSquare GetClosestSquareToPlayer()
+    {
+        GridSquare closestSquare = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (GameObject gridObject in gameGrid)
+        {
+            GridSquare square = gridObject.GetComponent<GridSquare>();
+
+            if (square == null)
+            {
+                continue;
+            }
+
+            Vector3 offset = square.transform.position - player.transform.position;
+            offset.y = 0f;
+            float distance = offset.sqrMagnitude;
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestSquare = square;
+            }
+        }
+
+        return closestSquare;
     }
 
     private void InitialiseGrid()
@@ -39,13 +80,6 @@ public class GridManager : MonoBehaviour
         foreach(GameObject gridObject in gameGrid)
         {
             GridSquare square = gridObject.GetComponent<GridSquare>();
-
-            if(square == null)
-            {
-                Debug.LogError($"{gridObject.name} is missing a GridSquare component.");
-
-                continue;
-            }
 
             square.SetMaterials(emptyAreaColor, targetAreaColor, dangerAreaColor);
 
@@ -77,6 +111,50 @@ public class GridManager : MonoBehaviour
 
         currentDanger = square;
         currentDanger.SetState(SquareState.Danger);
+    }
+
+    private void Laser()
+    {
+        List<GridSquare> squares = new List<GridSquare>();
+        List<Vector2Int> coordinates = new List<Vector2Int>();
+
+        foreach (GameObject gridObject in gameGrid)
+        {
+            string[] coordinateParts = gridObject.name.Split('x');
+
+            if (coordinateParts.Length != 2 ||
+                !int.TryParse(coordinateParts[0], out int x) ||
+                !int.TryParse(coordinateParts[1], out int y))
+            {
+                continue;
+            }
+
+            GridSquare square = gridObject.GetComponent<GridSquare>();
+
+            if (square == null)
+            {
+                continue;
+            }
+
+            squares.Add(square);
+            coordinates.Add(new Vector2Int(x, y));
+        }
+
+        bool horizontal = Random.value < 0.5f;
+        int line = Random.Range(1, 4);
+
+        for (int index = 0; index < squares.Count; index++)
+        {
+            Vector2Int coordinate = coordinates[index];
+            bool belongsToLine = horizontal
+                ? coordinate.y == line
+                : coordinate.x == line;
+
+            if (belongsToLine)
+            {
+                squares[index].SetState(SquareState.Danger);
+            }
+        }
     }
 
     private GridSquare GetRandomAvailableSquare()
