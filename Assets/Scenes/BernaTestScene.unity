@@ -1045,6 +1045,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.25, z: -0.000000014901161}
+--- !u!114 &624677483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
+  m_PrefabInstance: {fileID: 630772174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344edad2a970e9a4a9ce067c065d5d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &630772174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SubjectName: P1
-  Client: {fileID: 0}
+  Client: {fileID: 624677483}
 --- !u!4 &698530838
 Transform:
   m_ObjectHideFlags: 0
@@ -1872,7 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   target: {fileID: 698530838}
-  speed: 10
+  speed: 7
   rotationSpeed: 10
 --- !u!23 &1713281037
 MeshRenderer:

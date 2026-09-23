@@ -17,6 +17,7 @@ public class GridManager : MonoBehaviour
     private GridSquare currentDanger;
     private GridSquare nextDanger;
     private TestMovement player;
+    private bool isReloading;
 
     [SerializeField] private GameObject[] gameGrid;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -224,7 +225,18 @@ public class GridManager : MonoBehaviour
 
     public void PlayerHitDanger()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (isReloading)
+        {
+            return;
+        }
+
+        isReloading = true;
+        StartCoroutine(ReloadScene());
+    }
+
+    private IEnumerator ReloadScene()
+    {
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator DangerCycle()
