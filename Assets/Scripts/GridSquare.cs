@@ -1,4 +1,5 @@
 using UnityEngine;
+
 /// <summary>
 /// Controls Grid Squares State, checks if player is on it and which material it uses
 /// </summary>
@@ -21,6 +22,8 @@ public class GridSquare : MonoBehaviour
     private Material emptyMaterial;
     private Material targetMaterial;
     private Material dangerMaterial;
+
+    [SerializeField] private GridManager gridManager;
 
     private void Awake()
     {
@@ -70,21 +73,55 @@ public class GridSquare : MonoBehaviour
         }
     }
 
-    /* Missing Player detection logic
+    public void PlayerLanded(TestMovement player)
+    {
+        playerPresent = true;
+
+        Debug.Log($"Player landed on {gameObject.name}");
+
+        if(squareState == SquareState.Target)
+        {
+            if(gridManager != null)
+            {
+                gridManager.TargetInteracted(this);
+            }
+        }
+    }
+
+    public void PlayerLeft()
+    {
+        playerPresent = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if()
+        TestMovement player = other.GetComponent<TestMovement>();
+
+        if(player == null)
         {
-            playerPresent = true;
+            return;
+        }
+
+        playerPresent = true;
+
+        if(squareState == SquareState.Danger)
+        {
+            if(gridManager != null)
+            {
+                gridManager.PlayerHitDanger();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if()
+        TestMovement player = other.GetComponent<TestMovement>();
+
+        if(player == null)
         {
-            playerPresent = false;
+            return;
         }
+
+        playerPresent = false;
     }
-    */
 }

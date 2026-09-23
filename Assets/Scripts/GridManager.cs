@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GridManager : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class GridManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        
+        InitialiseGrid();
+        ChooseInitialTarget();
+        ChooseInitialDanger();
+
+        StartCoroutine(DangerCycle());
     }
 
     // Update is called once per frame
@@ -137,6 +142,11 @@ public class GridManager : MonoBehaviour
 
         currentTarget = newTarget;
         currentTarget.SetState(SquareState.Target);
+    }
+
+    public void PlayerHitDanger()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator DangerCycle()
