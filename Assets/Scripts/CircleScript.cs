@@ -43,31 +43,34 @@ public class CircleScript : MonoBehaviour
 
     private void HandleMouseMovement()
     {
-        Vector2 screenPosition = mouse.position.ReadValue();
-
-        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-
-        if (groundPlane.Raycast(ray, out float enter))
+        if (mouse.leftButton.isPressed)
         {
-            Vector3 worldPosition = ray.GetPoint(enter);
+            Vector2 screenPosition = mouse.position.ReadValue();
 
-            Vector3 position = transform.position;
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
 
-            position.x = worldPosition.x;
-            position.z = worldPosition.z;
-
-            // Right mouse button raises the pointer.
-            if (mouse.rightButton.isPressed)
+            if (groundPlane.Raycast(ray, out float enter))
             {
-                position.y = normalY + testingJumpPointerHeight;
-            }
-            else
-            {
-                position.y = normalY;
-            }
+                Vector3 worldPosition = ray.GetPoint(enter);
 
-            transform.position = position;
+                Vector3 position = transform.position;
+
+                position.x = worldPosition.x;
+                position.z = worldPosition.z;
+
+                // Right mouse button raises the pointer.
+                if (mouse.rightButton.isPressed)
+                {
+                    position.y = normalY + testingJumpPointerHeight;
+                }
+                else
+                {
+                    position.y = normalY;
+                }
+
+                transform.position = position;
+            }
         }
     }
 
