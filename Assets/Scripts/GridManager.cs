@@ -13,6 +13,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private float dangerChangeTime = 10f;
     [SerializeField] private float dangerWarningTime = 3f;
     [SerializeField] private float flashSpeed = 0.15f;
+    [SerializeField] private float laserChangeTime = 20f;
 
     private GridSquare currentTarget;
     private GridSquare currentDanger;
@@ -39,6 +40,7 @@ public class GridManager : MonoBehaviour
         }
 
         StartCoroutine(DangerCycle());
+        StartCoroutine(LaserCycle());
     }
 
     // Update is called once per frame
@@ -172,10 +174,12 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator ActivateLaser(List<GridSquare> laserSquares)
     {
+        float laserWarningTime = dangerWarningTime * 0.5f;
+        float laserHoldTime = (dangerChangeTime - dangerWarningTime) * 0.5f;
         float elapsed = 0f;
         bool flashing = false;
 
-        while (elapsed < dangerWarningTime)
+        while (elapsed < laserWarningTime)
         {
             flashing = !flashing;
 
@@ -195,7 +199,7 @@ public class GridManager : MonoBehaviour
             square.SetState(SquareState.Danger);
         }
 
-        yield return new WaitForSeconds(dangerChangeTime - dangerWarningTime);
+        yield return new WaitForSeconds(laserHoldTime);
 
         foreach (GridSquare square in laserSquares)
         {
@@ -203,6 +207,15 @@ public class GridManager : MonoBehaviour
             {
                 square.SetState(SquareState.Empty);
             }
+        }
+    }
+
+    private IEnumerator LaserCycle()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(laserChangeTime);
+            Laser();
         }
     }
 
