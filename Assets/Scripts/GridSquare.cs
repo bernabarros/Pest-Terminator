@@ -25,6 +25,9 @@ public class GridSquare : MonoBehaviour
 
     [SerializeField] private GridManager gridManager;
 
+    [SerializeField] private GameObject[] targetSprites;
+    [SerializeField] private Transform targetVisualParent;
+
     private void Awake()
     {
         squareRenderer = GetComponent<Renderer>();
@@ -50,6 +53,45 @@ public class GridSquare : MonoBehaviour
         UpdateVisual();
     }
 
+    private void ShowTargetVisual()
+    {
+        ClearTargetVisual();
+
+        int spriteCount = Random.Range(1, 4);
+
+            for (int i = 0; i < spriteCount; i++)
+        {
+            GameObject prefab = targetSprites[
+                Random.Range(0, targetSprites.Length)
+            ];
+
+            if (prefab == null)
+            {
+                Debug.LogError($"{gameObject.name}: One of the target sprite prefabs is null.");
+                continue;
+            }
+
+            GameObject visual = Instantiate(
+                prefab,
+                targetVisualParent
+            );
+
+            visual.transform.localPosition = new Vector3(
+                Random.Range(-0.4f, 0.4f),
+                1f,
+                Random.Range(-0.4f, 0.4f)
+            );
+        }
+    }
+
+    private void ClearTargetVisual()
+    {
+        for (int i = targetVisualParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(targetVisualParent.GetChild(i).gameObject);
+        }
+    }
+
     private void UpdateVisual()
     {
         if(squareRenderer == null)
@@ -61,18 +103,22 @@ public class GridSquare : MonoBehaviour
         {
             case SquareState.Empty:
                 squareRenderer.material = emptyMaterial;
+                ClearTargetVisual();
                 break;
 
             case SquareState.Target:
-                squareRenderer.material = targetMaterial;
+                squareRenderer.material = emptyMaterial;
+                ShowTargetVisual();
                 break;
 
             case SquareState.ChangingToDanger:
                 squareRenderer.material = dangerMaterial;
+                ClearTargetVisual();
                 break;
 
             case SquareState.Danger:
                 squareRenderer.material = dangerMaterial;
+                ClearTargetVisual();
                 break;
         }
     }
