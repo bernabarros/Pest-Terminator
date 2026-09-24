@@ -18,7 +18,7 @@ public class GridManager : MonoBehaviour
     private GridSquare currentTarget;
     private GridSquare currentDanger;
     private GridSquare nextDanger;
-    private TestMovement player;
+    private FollowCircle player;
     private bool isReloading;
     private readonly List<GridSquare> activeLaserSquares = new List<GridSquare>();
 
@@ -33,7 +33,7 @@ public class GridManager : MonoBehaviour
         ChooseInitialTarget();
         ChooseInitialDanger();
 
-        player = FindFirstObjectByType<TestMovement>();
+        player = FindFirstObjectByType<FollowCircle>();
 
         if(scoreText != null)
         {
