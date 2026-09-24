@@ -163,7 +163,7 @@ public class GridManager : MonoBehaviour
                 ? coordinate.y == line
                 : coordinate.x == line;
 
-            if (belongsToLine)
+            if (belongsToLine && squares[index] != currentTarget)
             {
                 laserSquares.Add(squares[index]);
             }
@@ -185,6 +185,11 @@ public class GridManager : MonoBehaviour
 
             foreach (GridSquare square in laserSquares)
             {
+                if (square == currentTarget)
+                {
+                    continue;
+                }
+
                 square.SetState(flashing
                     ? SquareState.ChangingToDanger
                     : SquareState.Empty);
@@ -196,14 +201,17 @@ public class GridManager : MonoBehaviour
 
         foreach (GridSquare square in laserSquares)
         {
-            square.SetState(SquareState.Danger);
+            if (square != currentTarget)
+            {
+                square.SetState(SquareState.Danger);
+            }
         }
 
         yield return new WaitForSeconds(laserHoldTime);
 
         foreach (GridSquare square in laserSquares)
         {
-            if (square.State == SquareState.Danger)
+            if (square != currentTarget && square.State == SquareState.Danger)
             {
                 square.SetState(SquareState.Empty);
             }
