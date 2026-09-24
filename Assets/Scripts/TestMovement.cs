@@ -51,8 +51,8 @@ public class TestMovement : MonoBehaviour
 
         //CheckForLanding();
 
-        bool isGrounded = controller.isGrounded;
-
+        //bool isGrounded = controller.isGrounded;
+        /*
         if (!wasGrounded && isGrounded)
         {
             DetectLandingSquare();
@@ -62,6 +62,7 @@ public class TestMovement : MonoBehaviour
         {
             LeaveCurrentSquare();
         }
+        */
     }
 
     private void Move()
@@ -94,7 +95,7 @@ public class TestMovement : MonoBehaviour
 
         wasGrounded = grounded;
     }
-
+    /*
     private void CheckForLanding()
     {
         bool grounded = controller.isGrounded;
@@ -131,4 +132,5 @@ public class TestMovement : MonoBehaviour
             currentSquare = null;
         }
     }
+    */
 }

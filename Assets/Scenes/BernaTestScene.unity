@@ -1663,6 +1663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37bf68548cd6d7e48912fed817a57aed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2408001348110326286, guid: 37bf68548cd6d7e48912fed817a57aed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.000156937
@@ -2326,6 +2330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   useMouse: 1
+  jumpThreshold: 0.1
 --- !u!114 &698530837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3204,7 +3209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713281034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90d4fdfceb1ec4d40beb82b6ed46f22c, type: 3}
   m_Name: 
@@ -3229,6 +3234,9 @@ MonoBehaviour:
   target: {fileID: 698530838}
   speed: 7
   rotationSpeed: 10
+  jumpHeight: 1.5
+  gravity: -20
+  pointer: {fileID: 698530836}
 --- !u!23 &1713281037
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3319,13 +3327,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.46
+  m_Height: 0.25
   m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0.24}
+  m_Center: {x: 0, y: 0, z: 0.13}
 --- !u!1 &1786838300
 GameObject:
   m_ObjectHideFlags: 0

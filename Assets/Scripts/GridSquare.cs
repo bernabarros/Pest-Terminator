@@ -123,7 +123,7 @@ public class GridSquare : MonoBehaviour
         }
     }
 
-    public void PlayerLanded(TestMovement player)
+    public void PlayerLanded(FollowCircle player)
     {
         playerPresent = true;
 
@@ -145,7 +145,7 @@ public class GridSquare : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TestMovement player = other.GetComponent<TestMovement>();
+        FollowCircle player = other.GetComponent<FollowCircle>();
 
         if(player == null)
         {
@@ -165,7 +165,7 @@ public class GridSquare : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        TestMovement player = other.GetComponent<TestMovement>();
+        FollowCircle player = other.GetComponent<FollowCircle>();
 
         if(player == null)
         {
