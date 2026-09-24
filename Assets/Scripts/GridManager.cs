@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GridManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GridManager : MonoBehaviour
     private TestMovement player;
     private bool isReloading;
 
+    private int score = 0;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject[] gameGrid;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -28,6 +32,11 @@ public class GridManager : MonoBehaviour
         ChooseInitialDanger();
 
         player = FindFirstObjectByType<TestMovement>();
+
+        if(scoreText != null)
+        {
+            scoreText.text = score.ToString();
+        }
 
         StartCoroutine(DangerCycle());
     }
@@ -118,6 +127,7 @@ public class GridManager : MonoBehaviour
     {
         List<GridSquare> squares = new List<GridSquare>();
         List<Vector2Int> coordinates = new List<Vector2Int>();
+        List<GridSquare> laserSquares = new List<GridSquare>();
 
         foreach (GameObject gridObject in gameGrid)
         {
@@ -153,7 +163,45 @@ public class GridManager : MonoBehaviour
 
             if (belongsToLine)
             {
-                squares[index].SetState(SquareState.Danger);
+                laserSquares.Add(squares[index]);
+            }
+        }
+
+        StartCoroutine(ActivateLaser(laserSquares));
+    }
+
+    private IEnumerator ActivateLaser(List<GridSquare> laserSquares)
+    {
+        float elapsed = 0f;
+        bool flashing = false;
+
+        while (elapsed < dangerWarningTime)
+        {
+            flashing = !flashing;
+
+            foreach (GridSquare square in laserSquares)
+            {
+                square.SetState(flashing
+                    ? SquareState.ChangingToDanger
+                    : SquareState.Empty);
+            }
+
+            yield return new WaitForSeconds(flashSpeed);
+            elapsed += flashSpeed;
+        }
+
+        foreach (GridSquare square in laserSquares)
+        {
+            square.SetState(SquareState.Danger);
+        }
+
+        yield return new WaitForSeconds(dangerChangeTime - dangerWarningTime);
+
+        foreach (GridSquare square in laserSquares)
+        {
+            if (square.State == SquareState.Danger)
+            {
+                square.SetState(SquareState.Empty);
             }
         }
     }
@@ -207,6 +255,13 @@ public class GridManager : MonoBehaviour
         if(square != currentTarget)
         {
             return;
+        }
+
+        score += 100;
+
+        if(scoreText != null)
+        {
+            scoreText.text = score.ToString();
         }
 
         currentTarget.SetState(SquareState.Empty);

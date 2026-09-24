@@ -18,8 +18,6 @@ public class KilledOnStepped : MonoBehaviour
     {
         if (other.CompareTag("Feet"))
         {
-            ScoreScript scoreScript = FindFirstObjectByType<ScoreScript>();
-            scoreScript.enemyDeath.Invoke();
             Destroy(gameObject);
         }
     }
