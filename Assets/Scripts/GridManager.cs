@@ -278,7 +278,7 @@ public class GridManager : MonoBehaviour
 
             if(flashing)
             {
-                square.SetState(SquareState.Danger);
+                square.SetState(SquareState.ChangingToDanger);
             }
             else
             {
@@ -290,6 +290,6 @@ public class GridManager : MonoBehaviour
             elapsed += flashSpeed;
         }
 
-        square.SetState(SquareState.Empty);
+        square.SetState(SquareState.Danger);
     }
 }

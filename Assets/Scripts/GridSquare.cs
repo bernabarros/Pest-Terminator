@@ -67,6 +67,10 @@ public class GridSquare : MonoBehaviour
                 squareRenderer.material = targetMaterial;
                 break;
 
+            case SquareState.ChangingToDanger:
+                squareRenderer.material = dangerMaterial;
+                break;
+
             case SquareState.Danger:
                 squareRenderer.material = dangerMaterial;
                 break;
