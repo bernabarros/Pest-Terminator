@@ -1,17 +1,13 @@
 using UnityEngine;
 
 /// <summary>
-/// Controls Grid Squares State, checks if player is on it and which material it uses
+/// Controls the state and visual appearance of a grid square.
+/// Also handles player presence and jump interactions.
 /// </summary>
 public class GridSquare : MonoBehaviour
 {
-    /// <summary>
-    /// Returns a boolean depending on whether the player is standing on the square
-    /// </summary>
     private bool playerPresent;
-    /// <summary>
-    /// Enum that returns the square's state, it can be Empty, Target or Danger
-    /// </summary>
+
     private SquareState squareState = SquareState.Empty;
 
     public bool PlayerPresent => playerPresent;
@@ -38,7 +34,10 @@ public class GridSquare : MonoBehaviour
         playerPresent = present;
     }
 
-    public void SetMaterials(Material empty, Material target, Material danger)
+    public void SetMaterials(
+        Material empty,
+        Material target,
+        Material danger)
     {
         emptyMaterial = empty;
         targetMaterial = target;
@@ -50,6 +49,7 @@ public class GridSquare : MonoBehaviour
     public void SetState(SquareState newState)
     {
         squareState = newState;
+
         UpdateVisual();
     }
 
@@ -59,15 +59,28 @@ public class GridSquare : MonoBehaviour
 
         int spriteCount = Random.Range(1, 4);
 
-            for (int i = 0; i < spriteCount; i++)
+        for (int i = 0; i < spriteCount; i++)
         {
+            if (targetSprites == null ||
+                targetSprites.Length == 0)
+            {
+                Debug.LogWarning(
+                    $"{gameObject.name}: No target sprites assigned."
+                );
+
+                return;
+            }
+
             GameObject prefab = targetSprites[
                 Random.Range(0, targetSprites.Length)
             ];
 
             if (prefab == null)
             {
-                Debug.LogError($"{gameObject.name}: One of the target sprite prefabs is null.");
+                Debug.LogError(
+                    $"{gameObject.name}: One of the target sprite prefabs is null."
+                );
+
                 continue;
             }
 
@@ -86,92 +99,119 @@ public class GridSquare : MonoBehaviour
 
     private void ClearTargetVisual()
     {
-        for (int i = targetVisualParent.childCount - 1; i >= 0; i--)
+        if (targetVisualParent == null)
         {
-            Destroy(targetVisualParent.GetChild(i).gameObject);
+            return;
+        }
+
+        for (int i = targetVisualParent.childCount - 1;
+             i >= 0;
+             i--)
+        {
+            Destroy(
+                targetVisualParent.GetChild(i).gameObject
+            );
         }
     }
 
     private void UpdateVisual()
     {
-        if(squareRenderer == null)
+        if (squareRenderer == null)
         {
             return;
         }
 
-        switch(squareState)
+        switch (squareState)
         {
             case SquareState.Empty:
+
                 squareRenderer.material = emptyMaterial;
                 ClearTargetVisual();
+
                 break;
 
             case SquareState.Target:
+
                 squareRenderer.material = emptyMaterial;
                 ShowTargetVisual();
+
                 break;
 
             case SquareState.ChangingToDanger:
+
                 squareRenderer.material = dangerMaterial;
                 ClearTargetVisual();
+
                 break;
 
             case SquareState.Danger:
+
                 squareRenderer.material = dangerMaterial;
                 ClearTargetVisual();
+
                 break;
         }
     }
 
-    public void PlayerLanded(FollowCircle player)
+    /// <summary>
+    /// Called when both feet land on this square
+    /// after the player has jumped.
+    /// </summary>
+    public void PlayerJumpedOn()
     {
-        playerPresent = true;
+        Debug.Log(
+            $"Player jumped onto {gameObject.name}"
+        );
 
-        Debug.Log($"Player landed on {gameObject.name}");
-
-        if(squareState == SquareState.Target)
+        if (squareState == SquareState.Target)
         {
-            if(gridManager != null)
+            if (gridManager != null)
             {
                 gridManager.TargetInteracted(this);
             }
         }
     }
 
-    public void PlayerLeft()
+    public void PlayerEntered()
+    {
+        playerPresent = true;
+    }
+
+    public void PlayerExited()
     {
         playerPresent = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        FollowCircle player = other.GetComponent<FollowCircle>();
+        MocapPlayer player =
+            other.GetComponentInParent<MocapPlayer>();
 
-        if(player == null)
+        if (player == null)
         {
             return;
         }
 
-        playerPresent = true;
+        PlayerEntered();
 
-        if(squareState == SquareState.Danger)
-        {
-            if(gridManager != null)
-            {
-                gridManager.PlayerHitDanger();
-            }
-        }
+        /*
+         * Notice that we deliberately DON'T interact
+         * with the target here.
+         *
+         * Walking onto a target does nothing.
+         */
     }
 
     private void OnTriggerExit(Collider other)
     {
-        FollowCircle player = other.GetComponent<FollowCircle>();
+        MocapPlayer player =
+            other.GetComponentInParent<MocapPlayer>();
 
-        if(player == null)
+        if (player == null)
         {
             return;
         }
 
-        playerPresent = false;
+        PlayerExited();
     }
 }

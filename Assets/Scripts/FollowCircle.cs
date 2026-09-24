@@ -52,7 +52,7 @@ public class FollowCircle : MonoBehaviour
         HandleGravity();
 
         bool isGrounded = controller.isGrounded;
-
+        /*
         if (!wasGrounded && isGrounded)
         {
             DetectLandingSquare();
@@ -62,6 +62,7 @@ public class FollowCircle : MonoBehaviour
         {
             LeaveCurrentSquare();
         }
+        */
     }
 
     private void FollowTarget()
@@ -120,7 +121,7 @@ public class FollowCircle : MonoBehaviour
             Vector3.up * velocity.y * Time.deltaTime
         );
     }
-
+    /*
     private void DetectLandingSquare()
     {
         RaycastHit hit;
@@ -151,4 +152,5 @@ public class FollowCircle : MonoBehaviour
             currentSquare = null;
         }
     }
+    */
 }
