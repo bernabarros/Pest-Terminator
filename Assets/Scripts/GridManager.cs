@@ -20,6 +20,7 @@ public class GridManager : MonoBehaviour
     private GridSquare nextDanger;
     private TestMovement player;
     private bool isReloading;
+    private readonly List<GridSquare> activeLaserSquares = new List<GridSquare>();
 
     private int score = 0;
 
@@ -169,6 +170,8 @@ public class GridManager : MonoBehaviour
             }
         }
 
+        activeLaserSquares.Clear();
+        activeLaserSquares.AddRange(laserSquares);
         StartCoroutine(ActivateLaser(laserSquares));
     }
 
@@ -216,6 +219,8 @@ public class GridManager : MonoBehaviour
                 square.SetState(SquareState.Empty);
             }
         }
+
+        activeLaserSquares.Clear();
     }
 
     private IEnumerator LaserCycle()
@@ -256,6 +261,11 @@ public class GridManager : MonoBehaviour
             }
 
             if(square == nextDanger)
+            {
+                continue;
+            }
+
+            if(activeLaserSquares.Contains(square))
             {
                 continue;
             }
