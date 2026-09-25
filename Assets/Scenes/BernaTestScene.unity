@@ -155,6 +155,8 @@ MonoBehaviour:
   dangerWarningTime: 3
   flashSpeed: 0.15
   laserChangeTime: 20
+  audioSource: {fileID: 1756050129}
+  laserSound: {fileID: 8300000, guid: 83a4608e8740bf746b21867ca1afe360, type: 3}
   scoreText: {fileID: 1821847481}
   gameGrid:
   - {fileID: 268273106}
@@ -308,6 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -321,8 +325,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 161343355}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &95765884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -660,6 +662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -673,8 +677,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 918888065}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &268273112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -948,6 +950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -961,8 +965,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 437856803}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &323982020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2560,6 +2562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -2573,8 +2577,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 465873480}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &550300238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2850,6 +2852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -2863,8 +2867,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1129179063}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &705164592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3259,6 +3261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -3272,8 +3276,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 2097424499}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &1001952671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3911,6 +3913,7 @@ GameObject:
   - component: {fileID: 1756050128}
   - component: {fileID: 1756050127}
   - component: {fileID: 1756050126}
+  - component: {fileID: 1756050129}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3990,6 +3993,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1756050129
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756050124}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1786838300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4117,6 +4217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4130,8 +4232,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1367793560}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &1786838306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4493,6 +4593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4506,8 +4608,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 126008187}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &2010575418
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4677,6 +4777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93515cdedcdc00a4288fa37a064d5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
+  feetSound: {fileID: 1756050129}
+  jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4690,8 +4792,6 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1408328733}
-  dangerSprite: {fileID: 5033180708955247871, guid: 152689d6752175f4fa353ae19681fb33, type: 3}
-  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &2052985855
 BoxCollider:
   m_ObjectHideFlags: 0

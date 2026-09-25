@@ -18,6 +18,8 @@ public class GridSquare : MonoBehaviour
     private Material emptyMaterial;
     private Material targetMaterial;
     private Material dangerMaterial;
+    [SerializeField] private AudioSource feetSound;
+    [SerializeField] private AudioClip jumpSound;
 
     [SerializeField] private GridManager gridManager;
 
@@ -167,6 +169,7 @@ public class GridSquare : MonoBehaviour
         {
             if (gridManager != null)
             {
+                feetSound.PlayOneShot(jumpSound);
                 gridManager.TargetInteracted(this);
             }
         }

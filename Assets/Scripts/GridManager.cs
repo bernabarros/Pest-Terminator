@@ -16,6 +16,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private float laserChangeTime = 20f;
 
     private GridSquare currentTarget;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip laserSound;
     private GridSquare currentDanger;
     private GridSquare nextDanger;
     private MocapPlayer player;
@@ -128,6 +130,7 @@ public class GridManager : MonoBehaviour
 
     private void Laser()
     {
+        audioSource.PlayOneShot(laserSound);
         List<GridSquare> squares = new List<GridSquare>();
         List<Vector2Int> coordinates = new List<Vector2Int>();
         List<GridSquare> laserSquares = new List<GridSquare>();
