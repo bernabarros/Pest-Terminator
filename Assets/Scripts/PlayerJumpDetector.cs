@@ -67,7 +67,7 @@ public class PlayerJumpDetector : MonoBehaviour
     }
 
     //For MocapPlayer script
-    /*
+    
     private void DetectJump()
     {
         bool leftFootRaised =
@@ -99,9 +99,10 @@ public class PlayerJumpDetector : MonoBehaviour
         
         TryDetectLanding();
     }
-    */
+    
 
     //For KeyboardPlayer Script
+    /*
     private void DetectJump()
     {
         bool leftFootRaised =
@@ -124,9 +125,9 @@ public class PlayerJumpDetector : MonoBehaviour
                 rightFootHasRaised = true;
             }
 
-            /*
-            * Both feet have participated in the jump.
-            */
+            
+            // Both feet have participated in the jump.
+            
             if (leftFootHasRaised && rightFootHasRaised)
             {
                 StartJump();
@@ -137,6 +138,7 @@ public class PlayerJumpDetector : MonoBehaviour
 
         TryDetectLanding();
     }
+    */
 
     private void StartJump()
     {

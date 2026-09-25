@@ -20,7 +20,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private AudioClip laserSound;
     private GridSquare currentDanger;
     private GridSquare nextDanger;
-    private MocapPlayer player;
+    [SerializeField] private GameObject player;
     private bool isReloading;
     private readonly List<GridSquare> activeLaserSquares = new List<GridSquare>();
 
@@ -34,8 +34,6 @@ public class GridManager : MonoBehaviour
         InitialiseGrid();
         ChooseInitialTarget();
         ChooseInitialDanger();
-
-        player = FindFirstObjectByType<MocapPlayer>();
 
         if(scoreText != null)
         {
