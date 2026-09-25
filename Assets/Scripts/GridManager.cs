@@ -125,6 +125,7 @@ public class GridManager : MonoBehaviour
         }
 
         currentDanger = square;
+        currentDanger.SetDangerVisualEnabled(true);
         currentDanger.SetState(SquareState.Danger);
     }
 
@@ -196,6 +197,7 @@ public class GridManager : MonoBehaviour
                     continue;
                 }
 
+                square.SetDangerVisualEnabled(false);
                 square.SetState(flashing
                     ? SquareState.ChangingToDanger
                     : SquareState.Empty);
@@ -209,6 +211,7 @@ public class GridManager : MonoBehaviour
         {
             if (square != currentTarget)
             {
+                square.SetDangerVisualEnabled(false);
                 square.SetState(SquareState.Danger);
             }
         }
@@ -350,6 +353,7 @@ public class GridManager : MonoBehaviour
             }
 
             currentDanger = nextDanger;
+            currentDanger.SetDangerVisualEnabled(true);
             currentDanger.SetState(SquareState.Danger);
 
             nextDanger = null;

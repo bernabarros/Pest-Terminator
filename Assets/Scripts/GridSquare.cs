@@ -18,6 +18,7 @@ public class GridSquare : MonoBehaviour
     private Material emptyMaterial;
     private Material targetMaterial;
     private Material dangerMaterial;
+    private bool dangerVisualEnabled = true;
     [SerializeField] private AudioSource feetSound;
     [SerializeField] private AudioClip jumpSound;
 
@@ -25,6 +26,9 @@ public class GridSquare : MonoBehaviour
 
     [SerializeField] private GameObject[] targetSprites;
     [SerializeField] private Transform targetVisualParent;
+
+    [Header("Danger Visuals")]
+    [SerializeField] private GameObject dangerSprite;
 
     private void Awake()
     {
@@ -53,6 +57,16 @@ public class GridSquare : MonoBehaviour
         squareState = newState;
 
         UpdateVisual();
+    }
+
+    public void SetDangerVisualEnabled(bool enabled)
+    {
+        dangerVisualEnabled = enabled;
+
+        if (squareState == SquareState.Danger)
+        {
+            UpdateVisual();
+        }
     }
 
     private void ShowTargetVisual()
@@ -97,6 +111,36 @@ public class GridSquare : MonoBehaviour
                 Random.Range(-0.4f, 0.4f)
             );
         }
+    }
+
+    private void ShowDangerVisual()
+    {
+        ClearTargetVisual();
+
+        if (!dangerVisualEnabled)
+        {
+            return;
+        }
+
+        if (dangerSprite == null)
+        {
+            Debug.LogWarning(
+                $"{gameObject.name}: No danger sprite assigned."
+            );
+
+            return;
+        }
+
+        GameObject visual = Instantiate(
+            dangerSprite,
+            targetVisualParent
+        );
+
+        visual.transform.localPosition = new Vector3(
+            0f,
+            1f,
+            0f
+        );
     }
 
     private void ClearTargetVisual()
@@ -149,7 +193,7 @@ public class GridSquare : MonoBehaviour
             case SquareState.Danger:
 
                 squareRenderer.material = dangerMaterial;
-                ClearTargetVisual();
+                ShowDangerVisual();
 
                 break;
         }
