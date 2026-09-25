@@ -321,6 +321,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 161343355}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &95765884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -671,6 +673,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 918888065}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &268273112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -957,6 +961,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 437856803}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &323982020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2214,6 +2220,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 465873480}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &550300238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2502,6 +2510,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1129179063}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &705164592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2836,6 +2846,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 2097424499}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &1001952671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3692,6 +3704,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1367793560}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &1786838306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4066,6 +4080,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 126008187}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &2010575418
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4248,6 +4264,8 @@ MonoBehaviour:
   - {fileID: 3801826511153494606, guid: a15a479e5ab516c48807498f48004b8c, type: 3}
   - {fileID: 7052845098565736852, guid: 40b69d7052933ea498d70b0e3d8b96fb, type: 3}
   targetVisualParent: {fileID: 1408328733}
+  dangerSprite: {fileID: 8979237240889071194, guid: 4096f1a401d7d3449a11551200179b75, type: 3}
+  changingToDangerSprite: {fileID: 1124550122296684972, guid: fe131ff8eb6e4fd4d902361533cf7b8a, type: 3}
 --- !u!65 &2052985855
 BoxCollider:
   m_ObjectHideFlags: 0
