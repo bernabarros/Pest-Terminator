@@ -24,12 +24,6 @@ public class GridSquare : MonoBehaviour
     [SerializeField] private GameObject[] targetSprites;
     [SerializeField] private Transform targetVisualParent;
 
-    [Header("Danger Visuals")]
-    [SerializeField] private GameObject dangerSprite;
-
-    [Header("Changing To Danger Visuals")]
-    [SerializeField] private GameObject changingToDangerSprite;
-
     private void Awake()
     {
         squareRenderer = GetComponent<Renderer>();
@@ -97,60 +91,10 @@ public class GridSquare : MonoBehaviour
 
             visual.transform.localPosition = new Vector3(
                 Random.Range(-0.4f, 0.4f),
-                1.2f,
+                1f,
                 Random.Range(-0.4f, 0.4f)
             );
         }
-    }
-
-    private void ShowDangerVisual()
-    {
-        ClearTargetVisual();
-
-        if (dangerSprite == null)
-        {
-            Debug.LogWarning(
-                $"{gameObject.name}: No danger sprite assigned."
-            );
-
-            return;
-        }
-
-        GameObject visual = Instantiate(
-            dangerSprite,
-            targetVisualParent
-        );
-
-        visual.transform.localPosition = new Vector3(
-            0f,
-            1.2f,
-            0f
-        );
-    }
-
-    private void ShowChangingToDangerVisual()
-    {
-        ClearTargetVisual();
-
-        if (changingToDangerSprite == null)
-        {
-            Debug.LogWarning(
-                $"{gameObject.name}: No changing-to-danger sprite assigned."
-            );
-
-            return;
-        }
-
-        GameObject visual = Instantiate(
-            changingToDangerSprite,
-            targetVisualParent
-        );
-
-        visual.transform.localPosition = new Vector3(
-            0f,
-            1.2f,
-            0f
-        );
     }
 
     private void ClearTargetVisual()
@@ -195,15 +139,15 @@ public class GridSquare : MonoBehaviour
 
             case SquareState.ChangingToDanger:
 
-                squareRenderer.material = emptyMaterial;
-                ShowChangingToDangerVisual();
+                squareRenderer.material = dangerMaterial;
+                ClearTargetVisual();
 
                 break;
 
             case SquareState.Danger:
 
                 squareRenderer.material = dangerMaterial;
-                ShowDangerVisual();
+                ClearTargetVisual();
 
                 break;
         }
