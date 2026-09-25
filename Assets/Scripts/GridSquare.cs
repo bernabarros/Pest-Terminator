@@ -181,28 +181,28 @@ public class GridSquare : MonoBehaviour
         {
             case SquareState.Empty:
 
-                //squareRenderer.material = emptyMaterial;
+                squareRenderer.material = emptyMaterial;
                 ClearTargetVisual();
 
                 break;
 
             case SquareState.Target:
 
-                //squareRenderer.material = emptyMaterial;
+                squareRenderer.material = emptyMaterial;
                 ShowTargetVisual();
 
                 break;
 
             case SquareState.ChangingToDanger:
 
-                //squareRenderer.material = emptyMaterial;
+                squareRenderer.material = emptyMaterial;
                 ShowChangingToDangerVisual();
 
                 break;
 
             case SquareState.Danger:
 
-                //squareRenderer.material = emptyMaterial;
+                squareRenderer.material = dangerMaterial;
                 ShowDangerVisual();
 
                 break;
