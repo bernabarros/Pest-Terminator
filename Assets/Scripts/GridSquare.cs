@@ -105,10 +105,10 @@ public class GridSquare : MonoBehaviour
                 targetVisualParent
             );
 
-            visual.transform.localPosition = new Vector3(
-                Random.Range(-0.4f, 0.4f),
-                1f,
-                Random.Range(-0.4f, 0.4f)
+            visual.transform.position = new Vector3(
+                transform.position.x + Random.Range(-0.4f, 0.4f),
+                squareRenderer.bounds.max.y + 1f,
+                transform.position.z + Random.Range(-0.4f, 0.4f)
             );
         }
     }
