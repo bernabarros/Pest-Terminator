@@ -167,6 +167,9 @@ public class GridSquare : MonoBehaviour
             return;
         }
 
+        squareRenderer.enabled = squareState == SquareState.ChangingToDanger ||
+            squareState == SquareState.Danger;
+
         switch (squareState)
         {
             case SquareState.Empty:
