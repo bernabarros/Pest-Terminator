@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -665,6 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -954,6 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -2567,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -2858,6 +2862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -3336,6 +3341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4293,6 +4299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4670,6 +4677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}
@@ -4928,6 +4936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridSquare
   feetSound: {fileID: 1756050129}
   jumpSound: {fileID: 8300000, guid: c101a2f59c508cc43ad7cf2881e31afa, type: 3}
+  landSound: {fileID: 8300000, guid: 358926e6254621047aa3e10df633bf9a, type: 3}
   gridManager: {fileID: 44272728}
   targetSprites:
   - {fileID: 2836944235294539974, guid: 25e80ec033584884786e41f7e4c23c63, type: 3}

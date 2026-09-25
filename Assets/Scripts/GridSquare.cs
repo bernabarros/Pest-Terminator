@@ -21,6 +21,7 @@ public class GridSquare : MonoBehaviour
     private bool dangerVisualEnabled = true;
     [SerializeField] private AudioSource feetSound;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
 
     [SerializeField] private GridManager gridManager;
 
@@ -218,6 +219,7 @@ public class GridSquare : MonoBehaviour
             {
                 feetSound.PlayOneShot(jumpSound);
                 gridManager.TargetInteracted(this);
+                feetSound.PlayOneShot(landSound);
             }
         }
     }
